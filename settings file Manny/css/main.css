@@ -1,0 +1,403 @@
+/* Basic reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px; /* Increased base font size for better readability */
+  line-height: 1.6;
+  background-color: #f4f7f6; /* A slightly cooler, clean background */
+  color: #333; /* Darker text color for better readability */
+}
+
+/* Main container for the entire page layout */
+.page-container {
+  display: flex; /* Use flexbox for main layout (sidebar and main content) */
+  min-height: 100vh; /* Ensure container takes at least full viewport height */
+}
+
+/* Sidebar navigation menu */
+.sidebar-menu {
+  width: 280px; /* Adjusted width */
+  background-color: #ffffff; /* White background for sidebar */
+  padding: 20px 0; /* Adjusted padding */
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.08); /* Slightly stronger but soft shadow */
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
+}
+
+.sidebar-menu nav ul {
+  list-style: none;
+}
+
+.sidebar-menu nav li {
+  display: flex; /* Use flexbox to align icon, heading, and description */
+  align-items: center;
+  margin-bottom: 8px; /* Adjusted margin */
+  padding: 14px 25px; /* Increased padding */
+  cursor: pointer;
+  border-left: 4px solid transparent; /* Placeholder for active state indicator */
+  transition: background-color 0.2s ease, border-left-color 0.2s ease; /* Smooth transitions */
+}
+
+.sidebar-menu nav li:hover {
+  background-color: #eef2f7; /* Light blue hover effect */
+}
+
+.sidebar-menu nav li .menu-item-icon {
+    width: 22px; /* Slightly larger icon size */
+    height: 22px; /* Slightly larger icon size */
+    margin-right: 18px; /* Increased space between icon and text */
+    object-fit: contain; /* Ensure the image fits within the bounds */
+    filter: grayscale(100%) brightness(50%) sepia(100%) hue-rotate(180deg) saturate(300%); /* Example: Tint icons blue */
+}
+
+.sidebar-menu nav li:hover .menu-item-icon {
+     filter: none; /* Remove tint on hover */
+}
+
+
+.sidebar-menu nav li .menu-item-heading {
+  flex-grow: 1; /* Allow heading to take up available space */
+  font-weight: 500; /* Medium font weight */
+  font-size: 16px; /* Adjusted font size */
+  color: #343a40; /* Darker color */
+}
+
+.sidebar-menu nav li .menu-item-description {
+  display: block; /* Make description a block element */
+  font-size: 12px; /* Adjusted font size */
+  color: #6c757d; /* Muted color */
+  margin-left: 10px; /* Space between heading and description */
+  text-align: right;
+  flex-shrink: 0; /* Prevent description from shrinking */
+}
+
+/* Style for the active menu item (example) */
+.sidebar-menu nav li.active {
+    border-left-color: #007bff; /* Primary blue indicator */
+    background-color: #eef2f7; /* Light blue background */
+    color: #007bff; /* Primary blue text color */
+}
+
+.sidebar-menu nav li.active .menu-item-heading {
+    color: #007bff; /* Primary blue heading color */
+}
+
+.sidebar-menu nav li.active .menu-item-description {
+    color: #007bff; /* Primary blue description color */
+}
+
+
+/* Main content area */
+.main-content {
+  flex-grow: 1; /* Allow main content to take up remaining space */
+  padding: 30px; /* Increased padding */
+}
+
+/* Top bar with filters and search */
+.top-bar {
+  display: flex; /* Use flexbox for filter nav and search */
+  align-items: center;
+  margin-bottom: 30px; /* Increased margin */
+  padding: 15px 20px; /* Adjusted padding */
+  background-color: #fff;
+  border: 1px solid #dee2e6; /* Lighter border */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); /* Lighter shadow */
+  border-radius: 5px; /* Added border radius */
+}
+
+/* Navigation for filtering options */
+.filter-nav span {
+  margin-right: 25px; /* Increased margin */
+  cursor: pointer;
+  font-size: 15px; /* Adjusted font size */
+  font-weight: 500; /* Medium font weight */
+  color: #495057; /* Darker color */
+  transition: color 0.2s ease;
+}
+
+.filter-nav span:hover {
+  color: #007bff; /* Primary blue on hover */
+  text-decoration: none; /* Remove underline on hover */
+}
+
+/* Assuming search-area is a placeholder for search input */
+.search-area {
+  margin-left: auto; /* Push search area to the right */
+  /* Add styling for search input if needed */
+}
+
+/* Section for settings blocks */
+.settings-section {
+  background-color: #ffffff; /* White background for sections */
+  padding: 25px; /* Adjusted padding */
+  margin-bottom: 25px; /* Increased margin */
+  border-radius: 5px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05); /* Lighter shadow */
+}
+
+.settings-section h2 {
+  font-size: 20px; /* Adjusted font size */
+  font-weight: 600; /* Semi-bold font weight */
+  margin-bottom: 15px; /* Adjusted margin */
+  color: #343a40; /* Darker heading color */
+  border-bottom: 1px solid #e9ecef; /* Separator under heading */
+  padding-bottom: 10px;
+}
+
+.settings-section p {
+  font-size: 15px; /* Adjusted font size */
+  color: #555; /* Slightly lighter text color */
+  margin-bottom: 10px; /* Adjusted margin */
+}
+
+/* Individual setting item */
+.setting-item {
+  display: flex; /* Use flexbox for layout within setting item */
+  align-items: center;
+  margin-bottom: 18px; /* Increased margin */
+  padding: 10px 0;
+  border-bottom: 1px solid #eee; /* Separator line */
+}
+
+.setting-item:last-child {
+  border-bottom: none; /* No border for the last item */
+}
+
+.setting-item label {
+    margin-right: 15px; /* Space between label and input/control */
+    font-weight: 500; /* Medium font weight */
+    color: #495057; /* Darker color */
+    flex-shrink: 0; /* Prevent label from shrinking */
+    min-width: 150px; /* Give labels a minimum width for alignment */
+}
+
+.setting-item span {
+  margin-right: 10px;
+}
+
+.setting-item .button {
+  /* Style for the button within a setting item */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  border-radius: 6px;
+  box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.setting-item .button span {
+    color: rgba(3,57,162,0.85);
+    font-size: 12px;
+    margin-right: 0; /* Remove margin for text inside button */
+}
+
+.setting-item .toggle-switch {
+    width: 40px; /* Adjusted size for better toggle appearance */
+    height: 20px; /* Adjusted size */
+    background-size: contain; /* Changed to contain */
+    background-repeat: no-repeat;
+    background-position: center right; /* Position the toggle image */
+    margin-left: auto; /* Push toggle to the right */
+    margin-right: 0; /* Removed margin */
+    cursor: pointer;
+    transition: background-position 0.2s ease; /* Smooth transition for toggle */
+}
+
+/* Specific background images for toggle switches */
+/* Assuming the images represent the "off" state, you would need "on" state images as well */
+.setting-item .email-toggle {
+    background-image: url('../images/v143_306.png'); /* Example toggle off image */
+}
+
+.setting-item .sms-toggle {
+    background-image: url('../images/v143_309.png'); /* Example toggle off image */
+}
+
+.setting-item .inapp-toggle {
+    background-image: url('../images/v143_312.png'); /* Example toggle off image */
+}
+
+.setting-item .twofactor-toggle {
+    background-image: url('../images/v143_315.png'); /* Example toggle off image */
+}
+
+/* Example of how to style the "on" state - requires JavaScript to add an 'on' class */
+/*
+.setting-item .toggle-switch.on {
+    background-image: url('../images/v143_XXX.png'); // Replace with actual "on" image
+    background-position: center left;
+}
+*/
+
+
+.setting-item input[type="text"],
+.setting-item input[type="number"],
+.setting-item input[type="email"],
+.setting-item input[type="password"],
+.setting-item select {
+    padding: 8px 12px; /* Increased padding for better touch targets and spacing */
+    border: 1px solid #ced4da; /* Lighter border */
+    border-radius: 4px; /* Slightly more rounded corners */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075); /* Inner shadow for input effect */
+    margin-left: auto; /* Push input/select to the right */
+    font-size: 15px; /* Adjusted font size */
+    color: #495057; /* Darker text color */
+    flex-grow: 1; /* Allow inputs to grow */
+    max-width: 300px; /* Limit max width for better form layout */
+}
+
+.setting-item input:focus,
+.setting-item select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Blue focus glow */
+}
+
+
+.setting-item button {
+    padding: 8px 15px;
+    background-color: #007bff; /* Primary blue button color */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px; /* Space between input and button */
+    transition: background-color 0.2s ease;
+}
+
+.setting-item button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+
+.setting-item .dropdown {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ced4da; /* Lighter border */
+    border-radius: 4px; /* Slightly more rounded corners */
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075); /* Inner shadow */
+    padding: 8px 12px; /* Adjusted padding */
+    margin-left: auto; /* Push dropdown to the right */
+    cursor: pointer;
+    background-color: #fff;
+    flex-grow: 1; /* Allow dropdown to grow */
+    max-width: 300px; /* Limit max width */
+}
+
+.setting-item .dropdown-value {
+    margin-right: 5px;
+    font-size: 15px;
+    color: #495057;
+}
+
+.setting-item .dropdown-arrow {
+    width: 10px; /* Adjust size as needed */
+    height: 10px; /* Adjust size as needed */
+    background-image: url('../images/v143_353.png'); /* Dropdown arrow image */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 5px; /* Space between value and arrow */
+}
+
+/* Activity Log Placeholder Styling */
+.activity-log-placeholder {
+    background-color: #fff;
+    border: 1px solid #dee2e6; /* Lighter border */
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075); /* Inner shadow */
+}
+
+.activity-log-placeholder p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.activity-log-placeholder ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.activity-log-placeholder li {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px; /* Adjusted margin */
+    border-bottom: 1px dashed #e9ecef; /* Lighter dashed line */
+    padding-bottom: 8px; /* Adjusted padding */
+}
+
+.activity-log-placeholder li:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+
+/* Danger Zone Styling */
+.danger-zone {
+    border: 2px solid #dc3545; /* Red border for emphasis */
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text */
+    padding: 25px; /* Adjusted padding */
+    border-radius: 5px;
+    margin-bottom: 25px;
+}
+
+.danger-zone h2 {
+    color: #721c24; /* Dark red heading color */
+    border-bottom-color: #f5c6cb; /* Lighter red border */
+}
+
+.danger-zone .delete-account-button {
+    background-color: #dc3545; /* Red button */
+    color: #fff;
+    margin-left: auto; /* Push button to the right */
+}
+
+.danger-zone .delete-account-button:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+.danger-zone .warning-text {
+    font-size: 14px;
+    color: #721c24; /* Dark red warning text */
+    margin-top: 15px; /* Adjusted margin */
+    font-weight: bold;
+}
+
+
+/* Button to save changes */
+.save-changes-button {
+  margin-top: 30px; /* Increased margin */
+  text-align: right; /* Align button to the right */
+}
+
+.save-changes-button button {
+  background-color: #28a745; /* Green button for save */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px; /* Increased font size */
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Lighter shadow */
+  transition: background-color 0.2s ease;
+}
+
+.save-changes-button button:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Basic styling for the 'name' class if it's still used for text color */
+.name {
+  color: #000; /* Set a default color if needed, original was white */
+}

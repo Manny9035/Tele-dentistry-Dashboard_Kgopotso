@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <title>Dentistry Settings</title>
+</head>
+<body>
+    <!-- Main container for the entire page layout -->
+    <div class="page-container">
+        <!-- Sidebar navigation menu -->
+        <aside class="sidebar-menu">
+            <nav>
+                <ul>
+                    <li>
+                        <img src="./images/v143_423.png" alt="Profile Icon" class="menu-item-icon">
+                        <span class="menu-item-heading">Profile Management</span>
+                        <span class="menu-item-description">Update your personal information</span>
+                    </li>
+                    <li>
+                         <img src="./images/notifications icon.png " alt="Notification Icon" class="menu-item-icon">
+                        <span class="menu-item-heading">Notification Preferences</span>
+                        <span class="menu-item-description">Manage how you receive alerts</span>
+                    </li>
+                    <li>
+                         <img src="./images/privacy setting.png" alt="Privacy Icon" class="menu-item-icon">
+                        <span class="menu-item-heading">Privacy & Security</span>
+                        <span class="menu-item-description">Configure your privacy settings</span>
+                    </li>
+                    <li>
+                         <img src="./images/v143_514.png" alt="Activity Icon" class="menu-item-icon">
+                        <span class="menu-item-heading">Activity Log</span>
+                        <span class="menu-item-description">View your recent actions</span>
+                    </li>
+                     <li>
+                         <img src="./images/v143_515.png" alt="Screen Lock Icon" class="menu-item-icon">
+                        <span class="menu-item-heading">Screen Lock</span>
+                        <span class="menu-item-description">Temporarily lock your screen</span>
+                    </li>
+                    <li>
+                         <img src="./images/v143_513.png" alt="Danger Zone Icon" class="menu-item-icon">
+                        <span class="menu-item-heading">Danger Zone</span>
+                        <span class="menu-item-description">Account deletion options</span>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main content area -->
+        <main class="main-content">
+            <!-- Top bar - Keeping a simplified version or removing if not needed -->
+            <header class="top-bar">
+                 <!-- Navigation for filtering options - Keeping for potential future use or removing if not needed -->
+                <nav class="filter-nav">
+                    <span>Settings Overview</span>
+                    <!-- Add other potential filters if needed -->
+                </nav>
+                <div class="search-area"></div> <!-- Keeping placeholder -->
+            </header>
+
+            <!-- Section for Profile Management -->
+            <section class="settings-section">
+                <h2>Profile Management</h2>
+                <p>Update your name, email address, and password.</p>
+
+                <div class="setting-item">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" value="Emma Smith"> <!-- Example value -->
+                </div>
+
+                 <div class="setting-item">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="emma.smith@example.com"> <!-- Example value -->
+                </div>
+
+                 <div class="setting-item">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" value="********"> <!-- Example value -->
+                    <button class="change-password-button">Change Password</button>
+                </div>
+            </section>
+
+            <!-- Section for Notification Preferences -->
+            <section class="settings-section">
+                <h2>Notification Preferences</h2>
+                <p>Manage how you receive notifications about appointments, updates, and messages.</p>
+
+                <div class="setting-item">
+                    <label for="email-notifications">Email Notifications</label>
+                    <div class="toggle-switch email-toggle" id="email-notifications"></div> <!-- Using div for toggle -->
+                </div>
+
+                 <div class="setting-item">
+                    <label for="sms-notifications">SMS Notifications</label>
+                    <div class="toggle-switch sms-toggle" id="sms-notifications"></div> <!-- Using div for toggle -->
+                </div>
+
+                 <div class="setting-item">
+                    <label for="inapp-notifications">In-App Notifications</label>
+                    <div class="toggle-switch inapp-toggle" id="inapp-notifications"></div> <!-- Using div for toggle -->
+                </div>
+            </section>
+
+            <!-- Section for Privacy & Security Settings -->
+            <section class="settings-section">
+                <h2>Privacy & Security Settings</h2>
+                <p>Configure settings related to your account privacy and security.</p>
+
+                <div class="setting-item">
+                    <label for="twofactor-auth">Two-Factor Authentication</label>
+                    <div class="toggle-switch twofactor-toggle" id="twofactor-auth"></div> <!-- Using div for toggle -->
+                </div>
+
+                 <div class="setting-item">
+                    <span>Data Sharing Preferences</span>
+                    <button class="manage-preferences-button">Manage Preferences</button>
+                </div>
+
+                 <div class="setting-item">
+                    <span>Connected Devices</span>
+                    <button class="view-devices-button">View Devices</button>
+                </div>
+            </section>
+
+             <!-- Section for Activity Log -->
+            <section class="settings-section">
+                <h2>Activity Log</h2>
+                <p>Review recent activity on your account, including login times and actions taken.</p>
+                <!-- Placeholder for activity log content - this would likely be dynamically loaded -->
+                <div class="activity-log-placeholder">
+                    <p>Activity log entries will appear here.</p>
+                    <ul>
+                        <li>Logged in from IP 192.168.1.100 at 2025-04-24 23:10</li>
+                        <li>Booked appointment for 2025-05-10 at 10:00 AM</li>
+                        <li>Updated profile information at 2025-04-24 23:05</li>
+                    </ul>
+                </div>
+            </section>
+
+             <!-- Section for Screen Lock -->
+            <section class="settings-section">
+                <h2>Screen Lock</h2>
+                <p>Temporarily lock your screen for privacy or short breaks.</p>
+                 <div class="setting-item">
+                    <span>Lock Screen Now</span>
+                    <button class="lock-screen-button">Lock Screen</button>
+                </div>
+                 <div class="setting-item">
+                    <label for="autolock-timer">Auto-Lock Timer</label>
+                     <select id="autolock-timer">
+                        <option value="5">5 minutes</option>
+                        <option value="10">10 minutes</option>
+                        <option value="15">15 minutes</option>
+                        <option value="30">30 minutes</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- Section for Danger Zone -->
+            <section class="settings-section danger-zone">
+                <h2>Danger Zone</h2>
+                <p>Options for advanced actions related to your account.</p>
+
+                <div class="setting-item">
+                    <span>Delete Account</span>
+                    <button class="delete-account-button">Delete My Account</button>
+                </div>
+                <p class="warning-text">Warning: Deleting your account is permanent and cannot be undone. All your data will be removed.</p>
+                <!-- Confirmation prompts would typically be handled with JavaScript -->
+            </section>
+
+
+            <!-- Button to save changes - Keeping for general settings save -->
+            <div class="save-changes-button">
+                <button>Save changes</button>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
