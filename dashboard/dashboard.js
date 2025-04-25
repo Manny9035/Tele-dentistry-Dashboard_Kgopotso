@@ -55,9 +55,17 @@ function switchTab(tabId) {
     // Remove active class from all tabs
     tabPanes.forEach(tab => tab.classList.remove('active'));
     
+  // If the target tab is 'settings', redirect to the settings page
+  if (tabId === 'settings') {
+    window.location.href = '../settings file Manny/index settings.html'; // Adjust path as needed
+  } else {
+    // Remove active class from all tabs
+    tabPanes.forEach(tab => tab.classList.remove('active'));
+
     // Add active class to target tab to make it visible
     targetTab.classList.add('active');
   }
+}
 }
 
 /**
@@ -557,18 +565,6 @@ document.addEventListener('DOMContentLoaded', () => {
         initPatientsTab();
     }
 });
-
-// Main JavaScript file for SmileConnect Dashboard functionality
-document.addEventListener('DOMContentLoaded', function() {
-    // Tab navigation functionality
-    initTabNavigation();
-    
-    // Initialize charts
-    initDashboardCharts();
-    
-    // Initialize patient management features
-    initPatientManagement();
-  });
   
   // Tab Navigation
   function initTabNavigation() {
@@ -579,13 +575,17 @@ document.addEventListener('DOMContentLoaded', function() {
       item.addEventListener('click', function() {
         const tabId = this.getAttribute('data-tab');
         
-        // Remove active class from all items
-        navItems.forEach(nav => nav.classList.remove('active'));
-        tabPanes.forEach(pane => pane.classList.remove('active'));
-        
-        // Add active class to clicked item and corresponding tab
-        this.classList.add('active');
-        document.getElementById(tabId).classList.add('active');
+        // Only proceed if we have a valid tab ID
+        if (tabId) {
+          // Remove active class from all sidebar items
+          navItems.forEach(navItem => navItem.classList.remove('active'));
+          
+          // Add active class to clicked item
+          this.classList.add('active');
+          
+          // Switch to the corresponding tab content
+          switchTab(tabId);
+        }
       });
     });
   }
@@ -1290,22 +1290,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Show notification message
-    function showNotification(message) {
-      // Create notification element if it doesn't exist
-      let notification = document.querySelector('.notification');
-      if (!notification) {
-        notification = document.createElement('div');
-        notification.className = 'notification';
-        document.body.appendChild(notification);
-      }
-      
-      // Set message and show
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      notification.classList.add('notification', `notification-${type}`);
       notification.textContent = message;
-      notification.classList.add('show');
       
-      // Hide after delay
+      document.body.appendChild(notification);
+      
+      // Auto-remove after 3 seconds
       setTimeout(() => {
-        notification.classList.remove('show');
+        notification.classList.add('fade-out');
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
       }, 3000);
     }
     
@@ -1371,7 +1368,7 @@ function sortPatientData(columnIndex, ascending) {
         const valueB = getSortValue(b, columnIndex);
 
         if (columnIndex === 2) { // Age is number
-            return ascending ? valueA - valueB : valueB - valueA;
+            return ascending ? valueA - valueB : valueB - a;
         } else if (columnIndex === 4) { // Date comparison
             const dateA = valueA ? new Date(valueA) : new Date(0);
             const dateB = valueB ? new Date(valueB) : new Date(0);
